@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Départements
+{% endblock %}
+
+{% block body %}
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+	</style>
+
+	<div class="container">
+
+		<table class="table">
+			<tr>
+				<th>Nom</th>
+				<th>Code Département</th>
+				<th>Departement</th>
+				<th>Editer</th>
+				<th>Effacer</th>
+			</tr>
+			{% for departement in listeDepartement %}
+				<tr>
+					<td>
+						<a href="{{path('admin_departementVille',{'id':departement.id})}}">
+							{{departement.nom}}
+						</a>
+					</td>
+					<td>{{departement.codedepartement}}</td>
+					<td>{{departement.slug}}</td>
+					<td>
+						<a href="{{path('admin_editDepartement',{'id':departement.id})}}">
+							Editer Département</a>
+					</td>
+					<td>
+						<a href="{{path('admin_deleteDepartement',{'id':departement.id})}}">
+							Effacer Departement</a>
+					</td>
+				</tr>
+
+				<br>
+
+			{% endfor  %}
+		</table>
+
+
+	</div>
+{% endblock %}

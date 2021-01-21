@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Ajout Ville
+{% endblock %}
+
+
+{% block body %}
+	<div class="container">
+
+		{{ form_start(form)}}
+
+		{{ form_row(form._token) }}
+
+		{{ form_label(form.nom,'Ville') }}
+		{{ form_widget(form.nom,{'attr':{'maxlength':'50'}}) }}
+
+		{{ form_label(form.codePostal,'Code Postal') }}
+		{{ form_widget(form.codePostal,{'attr':{'maxlength':'50'}}) }}
+
+		{{ form_label(form.population,'') }}
+		{{ form_widget(form.population,{'attr':{'maxlength':'255'}}) }}
+
+		{{ form_label(form.img,'') }}
+		{{ form_widget(form.img,{'attr':{'maxlength':'255'}}) }}
+
+		{{ form_label(form.departement,'departement') }}
+		{{ form_widget(form.departement)}}
+
+		{{ form_label(form.save,'Ajouter Ville') }}
+		{{ form_widget(form.save) }}
+
+		{{ form_end(form, {'render_rest': false}) }}
+
+	</div>
+
+
+{% endblock %}

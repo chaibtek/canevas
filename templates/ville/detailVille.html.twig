@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détail Ville!
+{% endblock %}
+
+{% block body %}
+
+	<div class="container">
+		<div class="row">
+			<div class="col">
+
+				<div class="card" style="width: 18rem;">
+					<img class="card-img-top" src="{{ville.img}}" alt="Dét" width="500">
+					<div class="card-body">
+						<h5 class="card-title">{{ville.nom}}</h5>
+						<p class="card-text">
+							{{ville.codepostal}}</p>
+						<p class="card-text">{{ville.population}}
+							habitants</p>
+						<p class="card-text">Nom du département :
+							{{ville.departement.nom}}</p>
+					</p>
+					{% if is_granted('ROLE_STAFF') %}
+						<a class="btn btn-info" href="{{ path('admin_editVille',{id:ville.id})}}" class="btn btn-primary">Editer</a>
+					{% endif %}
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>{% endblock %}
